@@ -5,14 +5,6 @@
 static const char* CDL_WADPath = "/usr/share/games/doom";
 // Default value: /usr/share/games/doom
 
-// Add values to this array to change the IWADs displayed
-static const char* CDL_KnownWADs[] = {
-	"DOOM.WAD",
-	"DOOM2.WAD",
-	"DOOM1.WAD",
-	"PLUTONIA.WAD",
-	"TNT.WAD",
-	"FREEDOOM1.WAD",
-	"FREEDOOM2.WAD",
-	"FREEDM.WAD"
-};
+// Change this to change the executable to use
+static const char* CDL_ExecutablePath = "/usr/local/bin/chocolate-doom";
+// Default value: /usr/local/bin/chocolate-doom

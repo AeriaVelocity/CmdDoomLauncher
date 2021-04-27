@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <dirent.h>
+#include "iwaddefs.h"
 
 #ifdef _WIN32
 #include "config.win.h"
@@ -16,6 +17,7 @@ int main()
 	int files = 1;
 	int KnownWADsLength = sizeof(CDL_KnownWADs)/sizeof(CDL_KnownWADs[0]);
 	char* WADEntries[KnownWADsLength];
+	char* ExecutableLine;
 	
 	printf("Using ");
 	printf(CDL_WADPath);
@@ -45,10 +47,49 @@ int main()
 				if (strcmp(entryName, CDL_KnownWADs[x]) == 0)
 				{
 					files++;
-					if (entryName == "DOOM.WAD")
+					// Yes, I know this is bad practice.
+					// I literally couldn't think of anything better.
+					if (strcmp(entryName, "DOOM.WAD") == 0)
 					{
-						printf("The Ultimate DOOM");
+						printf("1 - The Ultimate DOOM");
+						DEF_DOOM1 = 1;
 					}
+					else if (strcmp(entryName, "DOOM2.WAD") == 0)
+					{
+						printf("2 - DOOM 2: Hell on Earth");
+						DEF_DOOM2 = 1;
+					}
+					else if (strcmp(entryName, "DOOM1.WAD") == 0)
+					{
+						printf("3 - DOOM Shareware");
+						DEF_DOOMS = 1;
+					}
+					else if (strcmp(entryName, "PLUTONIA.WAD") == 0)
+					{
+						printf("4 - The Plutonia Experiment");
+						DEF_PLUTO = 1;
+					}
+					else if (strcmp(entryName, "TNT.WAD") == 0)
+					{
+						printf("5 - TNT: Evilution");
+						DEF_TNTEV = 1;
+					}
+					else if (strcmp(entryName, "FREEDOOM1.WAD") == 0)
+					{
+						printf("6 - Freedoom: Phase 1");
+						DEF_PLUTO = 1;
+					}
+					else if (strcmp(entryName, "FREEDOOM2.WAD") == 0)
+					{
+						printf("7 - Freedoom: Phase 2");
+						DEF_PLUTO = 1;
+					}
+					else if (strcmp(entryName, "FREEDM.WAD") == 0)
+					{
+						printf("8 - FreeDM");
+						DEF_PLUTO = 1;
+					}
+					printf("\n");
 				}
 			}
 		}
@@ -60,8 +101,41 @@ int main()
 		return 1;
 	}
 
-	int c = 0;
+	int c;
 	
 	printf("Type the number of the IWAD you want to launch\nType anything else to cancel\n> ");
-	c = getchar();
+	c = atoi(getchar());
+
+	switch (c)
+	{
+		case 1:
+			if (DEF_DOOM1)
+			{
+				strcat(ExecutableLine, CDL_ExecutablePath);
+				strcat(ExecutableLine, " -iwad ");
+				strcat(ExecutableLine, CDL_WADPath);
+				strcat(ExecutableLine, "DOOM.WAD");
+			}
+			break;
+		case 2:
+			if (DEF_DOOM2)
+			{
+				strcat(ExecutableLine, CDL_ExecutablePath);
+				strcat(ExecutableLine, " -iwad ");
+				strcat(ExecutableLine, CDL_WADPath);
+				strcat(ExecutableLine, "DOOM2.WAD");
+			}
+			break;
+		case 3:
+			if (DEF_DOOMS)
+			{
+				strcat(ExecutableLine, CDL_ExecutablePath);
+				strcat(ExecutableLine, " -iwad ");
+				strcat(ExecutableLine, CDL_WADPath);
+				strcat(ExecutableLine, "DOOM1.WAD");
+			}
+			break;
+		default:
+			printf("o ok\n");
+	}
 }
