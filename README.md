@@ -14,7 +14,7 @@ All you need is `gcc`.
 ```
 gcc -o cdl main.c
 ```
-On Windows:
+On Windows with MinGW:
 ```
 gcc -o cdl.exe main.c
 ```
