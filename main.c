@@ -12,9 +12,10 @@ int main()
 {
 	DIR* WadPathFolder = opendir(CDL_WADPath);
 	struct dirent* entry;
-	int x = 0;
+	int x, y = 0;
 	int files = 1;
 	int KnownWADsLength = sizeof(CDL_KnownWADs)/sizeof(CDL_KnownWADs[0]);
+	char* WADEntries[KnownWADsLength];
 	
 	printf("Using ");
 	printf(CDL_WADPath);
@@ -43,8 +44,11 @@ int main()
 			{
 				if (strcmp(entryName, CDL_KnownWADs[x]) == 0)
 				{
-					printf("%3d - %s\n", files, entry->d_name);
 					files++;
+					if (entryName == "DOOM.WAD")
+					{
+						printf("The Ultimate DOOM");
+					}
 				}
 			}
 		}
@@ -55,4 +59,9 @@ int main()
 		printf("No WADs found\n");
 		return 1;
 	}
+
+	int c = 0;
+	
+	printf("Type the number of the IWAD you want to launch\nType anything else to cancel\n> ");
+	c = getchar();
 }
