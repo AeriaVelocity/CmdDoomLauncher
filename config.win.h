@@ -2,7 +2,7 @@
 
 // Change this to change the IWAD path
 // Use double backslashes where you would usually use single backslashes
-static const char* CDL_WADPath = "%USERPROFILE%\\Documents";
+static const char* CDL_WADPath = "C:\\Users\\username\\Documents";
 // Default value: /usr/share/games/doom
 
 // Change this to change the executable to use
