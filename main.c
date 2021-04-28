@@ -14,12 +14,32 @@ int main()
 {
 	DIR* WadPathFolder = opendir(CDL_WADPath);
 	struct dirent* entry;
-	int x/*, y */= 0;
+	int x = 0;
 	int files = 1;
 	int KnownWADsLength = sizeof(CDL_KnownWADs)/sizeof(CDL_KnownWADs[0]);
-	/* char* WADEntries[KnownWADsLength]; */
 	char ExecutableLine[100];
 	
+	if (strcat(CDL_WADPath, "") == 0)
+	{
+		printf("WAD path is not configured\n");
+		#ifdef _WIN32
+		printf("You must edit config.win.h\n");
+		#else
+		printf("You must edit config.h\n");
+		#endif
+		return 1;
+	}
+	else if (strcat(CDL_ExecutablePath, "") == 0)
+	{
+		printf("Executable path is not configured\n");
+		#ifdef _WIN32
+		printf("You must edit config.win.h\n");
+		#else
+		printf("You must edit config.h\n");
+		#endif
+		return 1;
+	}
+
 	printf("Using ");
 	printf(CDL_WADPath);
 	#ifdef _WIN32

@@ -2,9 +2,11 @@
 ### A launcher for Doom for the command line. Written in straight up C (which makes this my first C program ever!)
 
 ## Configuration
-On Windows, the default IWAD path is `C:\Users\<username>\Documents`, and on other OSes, it's `/usr/share/games/doom`.
+On Windows, the default IWAD path is `C:\Users\username\Documents`.
+On other OSes, it's `/usr/share/games/doom`.
 
 You can change this by editing `config.h` (`config.win.h` on Windows).
+> You MUST edit `config.h`/`config.win.h` if you're on Windows or macOS, since there's no predefined place that your IWADs or executables go.
 
 ## Downloading and compiling
 ```
