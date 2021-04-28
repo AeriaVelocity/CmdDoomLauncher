@@ -166,7 +166,7 @@ int main()
 				strcat(ExecutableLine, "/FREEDOOM1.WAD");
 			}
 			break;
-		case 53:
+		case 55:
 			if (DEF_FREE2)
 			{
 				strcat(ExecutableLine, CDL_ExecutablePath);
@@ -175,7 +175,7 @@ int main()
 				strcat(ExecutableLine, "/TNT.WAD");
 			}
 			break;
-		case 54:
+		case 56:
 			if (DEF_FREDM)
 			{
 				strcat(ExecutableLine, CDL_ExecutablePath);
