@@ -4,3 +4,7 @@
 // Use double backslashes where you would usually use single backslashes
 static const char* CDL_WADPath = "%USERPROFILE%\\Documents";
 // Default value: /usr/share/games/doom
+
+// Change this to change the executable to use
+static const char* CDL_ExecutablePath = "/usr/local/bin/chocolate-doom";
+// Default value: /usr/local/bin/chocolate-doom
