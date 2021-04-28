@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include <dirent.h>
 #include "iwaddefs.h"
 
@@ -13,10 +14,10 @@ int main()
 {
 	DIR* WadPathFolder = opendir(CDL_WADPath);
 	struct dirent* entry;
-	int x, y = 0;
+	int x/*, y */= 0;
 	int files = 1;
 	int KnownWADsLength = sizeof(CDL_KnownWADs)/sizeof(CDL_KnownWADs[0]);
-	char* WADEntries[KnownWADsLength];
+	// char* WADEntries[KnownWADsLength];
 	char* ExecutableLine;
 	
 	printf("Using ");
@@ -104,38 +105,43 @@ int main()
 	int c;
 	
 	printf("Type the number of the IWAD you want to launch\nType anything else to cancel\n> ");
-	c = atoi(getchar());
+	c = getchar();
+	printf("%i\n", c);
 
 	switch (c)
 	{
-		case 1:
+		case 49:
 			if (DEF_DOOM1)
 			{
 				strcat(ExecutableLine, CDL_ExecutablePath);
 				strcat(ExecutableLine, " -iwad ");
 				strcat(ExecutableLine, CDL_WADPath);
-				strcat(ExecutableLine, "DOOM.WAD");
+				strcat(ExecutableLine, "/DOOM.WAD");
 			}
 			break;
-		case 2:
+		case 50:
 			if (DEF_DOOM2)
 			{
 				strcat(ExecutableLine, CDL_ExecutablePath);
 				strcat(ExecutableLine, " -iwad ");
 				strcat(ExecutableLine, CDL_WADPath);
-				strcat(ExecutableLine, "DOOM2.WAD");
+				strcat(ExecutableLine, "/DOOM2.WAD");
 			}
 			break;
-		case 3:
+		case 51:
 			if (DEF_DOOMS)
 			{
 				strcat(ExecutableLine, CDL_ExecutablePath);
 				strcat(ExecutableLine, " -iwad ");
 				strcat(ExecutableLine, CDL_WADPath);
-				strcat(ExecutableLine, "DOOM1.WAD");
+				strcat(ExecutableLine, "/DOOM1.WAD");
 			}
 			break;
 		default:
-			printf("o ok\n");
+			return 0;
 	}
+	strcat(ExecutableLine, "\n");
+	printf(ExecutableLine);
+	system(ExecutableLine);
+	system("/usr/local/bin/chocolate-doom -iwad /usr/share/games/doom/DOOM2.WAD");
 }
