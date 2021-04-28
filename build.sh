@@ -1,1 +1,1 @@
-gcc -o cdl main.c && ./cdl
+gcc -Wall -o cdl main.c && ./cdl

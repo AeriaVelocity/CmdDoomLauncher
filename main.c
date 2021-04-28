@@ -17,8 +17,8 @@ int main()
 	int x/*, y */= 0;
 	int files = 1;
 	int KnownWADsLength = sizeof(CDL_KnownWADs)/sizeof(CDL_KnownWADs[0]);
-	// char* WADEntries[KnownWADsLength];
-	char* ExecutableLine;
+	/* char* WADEntries[KnownWADsLength]; */
+	char ExecutableLine[100];
 	
 	printf("Using ");
 	printf(CDL_WADPath);
@@ -48,8 +48,10 @@ int main()
 				if (strcmp(entryName, CDL_KnownWADs[x]) == 0)
 				{
 					files++;
-					// Yes, I know this is bad practice.
-					// I literally couldn't think of anything better.
+					/*
+					Yes, I know this is bad practice.
+					I literally couldn't think of anything better.
+					*/
 					if (strcmp(entryName, "DOOM.WAD") == 0)
 					{
 						printf("1 - The Ultimate DOOM");
@@ -78,17 +80,17 @@ int main()
 					else if (strcmp(entryName, "FREEDOOM1.WAD") == 0)
 					{
 						printf("6 - Freedoom: Phase 1");
-						DEF_PLUTO = 1;
+						DEF_FREE1 = 1;
 					}
 					else if (strcmp(entryName, "FREEDOOM2.WAD") == 0)
 					{
 						printf("7 - Freedoom: Phase 2");
-						DEF_PLUTO = 1;
+						DEF_FREE2 = 1;
 					}
 					else if (strcmp(entryName, "FREEDM.WAD") == 0)
 					{
 						printf("8 - FreeDM");
-						DEF_PLUTO = 1;
+						DEF_FREDM = 1;
 					}
 					printf("\n");
 				}
@@ -116,7 +118,7 @@ int main()
 				strcat(ExecutableLine, CDL_ExecutablePath);
 				strcat(ExecutableLine, " -iwad ");
 				strcat(ExecutableLine, CDL_WADPath);
-				strcat(ExecutableLine, "/DOOM.WAD");
+				strcat(ExecutableLine, "/DOOM2.WAD");
 			}
 			break;
 		case 50:
@@ -137,11 +139,54 @@ int main()
 				strcat(ExecutableLine, "/DOOM1.WAD");
 			}
 			break;
+		case 52:
+			if (DEF_PLUTO)
+			{
+				strcat(ExecutableLine, CDL_ExecutablePath);
+				strcat(ExecutableLine, " -iwad ");
+				strcat(ExecutableLine, CDL_WADPath);
+				strcat(ExecutableLine, "/PLUTONIA.WAD");
+			}
+			break;
+		case 53:
+			if (DEF_TNTEV)
+			{
+				strcat(ExecutableLine, CDL_ExecutablePath);
+				strcat(ExecutableLine, " -iwad ");
+				strcat(ExecutableLine, CDL_WADPath);
+				strcat(ExecutableLine, "/TNT.WAD");
+			}
+			break;
+		case 54:
+			if (DEF_FREE1)
+			{
+				strcat(ExecutableLine, CDL_ExecutablePath);
+				strcat(ExecutableLine, " -iwad ");
+				strcat(ExecutableLine, CDL_WADPath);
+				strcat(ExecutableLine, "/FREEDOOM1.WAD");
+			}
+			break;
+		case 53:
+			if (DEF_FREE2)
+			{
+				strcat(ExecutableLine, CDL_ExecutablePath);
+				strcat(ExecutableLine, " -iwad ");
+				strcat(ExecutableLine, CDL_WADPath);
+				strcat(ExecutableLine, "/TNT.WAD");
+			}
+			break;
+		case 54:
+			if (DEF_FREDM)
+			{
+				strcat(ExecutableLine, CDL_ExecutablePath);
+				strcat(ExecutableLine, " -iwad ");
+				strcat(ExecutableLine, CDL_WADPath);
+				strcat(ExecutableLine, "/FREEDOOM1.WAD");
+			}
+			break;
 		default:
 			return 0;
 	}
-	strcat(ExecutableLine, "\n");
 	printf(ExecutableLine);
 	system(ExecutableLine);
-	system("/usr/local/bin/chocolate-doom -iwad /usr/share/games/doom/DOOM2.WAD");
 }
