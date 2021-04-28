@@ -1,2 +1,2 @@
 echo Building CDL with GCC...
-gcc -Wall -o cdl main.c
+gcc -Wall -o cdl.exe main.c
