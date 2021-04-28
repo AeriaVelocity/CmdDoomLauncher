@@ -19,7 +19,7 @@ int main()
 	int KnownWADsLength = sizeof(CDL_KnownWADs)/sizeof(CDL_KnownWADs[0]);
 	char ExecutableLine[100];
 	
-	if (strcat(CDL_WADPath, "") == 0)
+	if (strcmp(CDL_WADPath, "") == 0)
 	{
 		printf("WAD path is not configured\n");
 		#ifdef _WIN32
@@ -29,7 +29,7 @@ int main()
 		#endif
 		return 1;
 	}
-	else if (strcat(CDL_ExecutablePath, "") == 0)
+	else if (strcmp(CDL_ExecutablePath, "") == 0)
 	{
 		printf("Executable path is not configured\n");
 		#ifdef _WIN32
