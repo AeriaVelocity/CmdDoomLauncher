@@ -17,7 +17,7 @@ int main()
 	int x = 0;
 	int files = 1;
 	int KnownWADsLength = sizeof(CDL_KnownWADs)/sizeof(CDL_KnownWADs[0]);
-	char ExecutableLine[100];
+	char ExecutableLine[100] = "";
 	
 	if (strcmp(CDL_WADPath, "") == 0)
 	{
