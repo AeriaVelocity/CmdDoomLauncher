@@ -128,7 +128,6 @@ int main()
 	
 	printf("Type the number of the IWAD you want to launch\nType anything else to cancel\n> ");
 	c = getchar();
-	printf("%i\n", c);
 
 	switch (c)
 	{
@@ -207,6 +206,5 @@ int main()
 		default:
 			return 0;
 	}
-	printf(ExecutableLine);
 	system(ExecutableLine);
 }
