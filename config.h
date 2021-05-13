@@ -6,5 +6,5 @@ static const char* CDL_WADPath = "/usr/share/games/doom";
 // Default value: /usr/share/games/doom
 
 // Change this to change the executable to use
-static const char* CDL_ExecutablePath = "/usr/local/bin/chocolate-doom";
+static const char* CDL_ExecutablePath = "/usr/bin/crispy-doom";
 // Default value: /usr/local/bin/chocolate-doom

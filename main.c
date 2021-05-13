@@ -137,7 +137,7 @@ int main()
 				strcat(ExecutableLine, CDL_ExecutablePath);
 				strcat(ExecutableLine, " -iwad ");
 				strcat(ExecutableLine, CDL_WADPath);
-				strcat(ExecutableLine, "/DOOM2.WAD");
+				strcat(ExecutableLine, "/DOOM.WAD");
 			}
 			break;
 		case 50:
