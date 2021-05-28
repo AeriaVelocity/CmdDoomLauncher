@@ -1,6 +1,9 @@
 # Command Doom Launcher
 ### A launcher for Doom for the command line. Written in straight up C (which makes this my first C program ever!)
 
+## Prerequisites
+You need [GCC](http://gcc.gnu.org). On Windows, get [MinGW](https://osdn.net/projects/mingw/).
+
 ## Configuration
 If you're not on Windows, the IWAD directory defaults to `/usr/share/games/doom`.
 
